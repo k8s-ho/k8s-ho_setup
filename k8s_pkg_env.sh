@@ -61,7 +61,7 @@ sudo systemctl restart kubelet
 
 
 sudo echo "192.168.0.100 master-k8sHo" >> /etc/hosts
-for (( i=1; i<=$1; i++  )); do sudo echo "192.168.0.10$i worker_$i-k8sHo" >> /etc/hosts; done
+for (( i=1; i<=$2; i++  )); do sudo echo "192.168.0.10$i worker_$i-k8sHo" >> /etc/hosts; done
 
 cat <<EOF > /etc/resolv.conf
 nameserver 1.1.1.1 #cloudflare DNS
