@@ -3,12 +3,12 @@
 sudo apt-get update
 
 # install docker, containerd
-sudo apt-get install \
+sudo apt-get -y install \
     ca-certificates \
     curl \
     gnupg \
     lsb-release \
-    apt-transport-https -y
+    apt-transport-https 
     
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 sudo echo \
