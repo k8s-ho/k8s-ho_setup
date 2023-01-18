@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
       cfg.vm.host_name = "master-k8sHo"
       cfg.vm.network "private_network", ip: "192.168.0.100"
       cfg.vm.network "forwarded_port", guest: 22, host: 12340, auto_correct: true, id: "ssh"
-      cfg.vm.synced_folder "../data", "/setup", disabled: true 
+      cfg.vm.synced_folder "/", "/setup", disabled: true 
       cfg.vm.provision "shell", path: "k8s_pkg_env.sh", args: [k8s_ver, NodeCount] 
       cfg.vm.provision "shell", path: "k8s_m_setup.sh"
     end
@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
       cfg.vm.host_name = "worker_#{i}-k8sHo"
       cfg.vm.network "private_network", ip: "192.168.0.10#{i}"
       cfg.vm.network "forwarded_port", guest: 22, host: "1234#{i}", auto_correct: true, id: "ssh"
-      cfg.vm.synced_folder "../data", "/setup", disabled: true
+      cfg.vm.synced_folder "/", "/setup", disabled: true
       cfg.vm.provision "shell", path: "k8s_pkg_env.sh", args: [k8s_ver, NodeCount] 
       cfg.vm.provision "shell", path: "k8s_w_setup.sh"
     end
