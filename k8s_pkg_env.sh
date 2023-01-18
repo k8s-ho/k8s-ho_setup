@@ -34,16 +34,13 @@ EOF
 sudo sysctl --system
 
 
-sudo systemctl stop firewalld
-sudo systemctl disable firewalld
-
 
 # install kubernetes
 
 sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
-sudo apt-get install -y kubelet-$1 kubeadm-$1 kubectl-$1
+sudo apt-get install -y kubelet=$1-00 kubeadm=$1-00 kubectl=$1-00
 sudo apt-mark hold kubelet kubeadm kubectl
 
 
