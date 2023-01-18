@@ -64,3 +64,13 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
+
+echo "192.168.0.100 master-k8sHo" >> /etc/hosts
+for (( i=1; i<=$2; i++  )); do echo "192.168.0.10$i worker_$i-k8sHo" >> /etc/hosts; done
+
+
+cat <<EOF > /etc/resolv.conf
+nameserver 1.1.1.1 #cloudflare DNS
+nameserver 8.8.8.8 #Google DNS
+EOF
+
