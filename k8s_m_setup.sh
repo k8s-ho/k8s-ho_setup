@@ -16,8 +16,6 @@ echo 'alias k=kubectl' >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
 
 
-git clone https://github.com/k8s-ho/k8s_Kubernetes
-mv /home/vagrant/k8s_Kubernetes $HOME
-find $HOME/k8s_Kubernetes -regex ".*\.\(sh\)" -exec chmod 700 {} \;
-
-
+git clone https://github.com/k8s-ho/k8s-ho_setup
+mv /home/setup/k8s-ho_setup $HOME
+find $HOME/k8s-ho_setup -regex ".*\.\(sh\)" -exec chmod 700 {} \;
