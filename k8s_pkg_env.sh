@@ -38,7 +38,8 @@ EOF
 
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
 EOF
 
 sudo sysctl --system
@@ -57,3 +58,12 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
+
+
+sudo echo "192.168.0.100 master-k8sHo" >> /etc/hosts
+for (( i=1; i<=$1; i++  )); do sudo echo "192.168.0.10$i worker_$i-k8sHo" >> /etc/hosts; done
+
+cat <<EOF > /etc/resolv.conf
+nameserver 1.1.1.1 #cloudflare DNS
+nameserver 8.8.8.8 #Google DNS
+EOF
