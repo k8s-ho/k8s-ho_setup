@@ -3,7 +3,7 @@
 sudo apt-get update
 
 # install docker, containerd
-sudo apt-get -y install \
+sudo apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
