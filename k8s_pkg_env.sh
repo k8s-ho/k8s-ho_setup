@@ -45,15 +45,15 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 
 
-containerd config default > /etc/containerd/config.toml
+sudo containerd config default > /etc/containerd/config.toml
 
-cat <<EOF > /etc/default/kubelet
+sudo cat <<EOF > /etc/default/kubelet
 KUBELET_KUBEADM_ARGS=--container-runtime=remote \
                      --container-runtime-endpoint=/run/containerd/containerd.sock \
                      --cgroup-driver=systemd
 EOF
 
-cat <<EOF > /etc/crictl.yaml
+sudo cat <<EOF > /etc/crictl.yaml
 runtime-endpoint: unix:///run/containerd/containerd.sock
 image-endpoint: unix:///run/containerd/containerd.sock
 EOF
@@ -62,11 +62,11 @@ sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
 
-echo "192.168.0.100 master-k8sHo" >> /etc/hosts
-for (( i=1; i<=$2; i++  )); do echo "192.168.0.10$i worker_$i-k8sHo" >> /etc/hosts; done
+sudo echo "192.168.0.100 master-k8sHo" >> /etc/hosts
+for (( i=1; i<=$2; i++  )); do sudo echo "192.168.0.10$i worker_$i-k8sHo" >> /etc/hosts; done
 
 
-cat <<EOF > /etc/resolv.conf
+sudo cat <<EOF > /etc/resolv.conf
 nameserver 1.1.1.1 #cloudflare DNS
 nameserver 8.8.8.8 #Google DNS
 EOF
