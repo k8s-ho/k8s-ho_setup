@@ -7,7 +7,7 @@ sudo apt-get install \
    gnupg \
    lsb-release
 
-swapoff -a && sed -i '/swap/s/^/#/' /etc/fstab
+sudo swapoff -a && sudo sed -i '/swap/s/^/#/' /etc/fstab
 
 #sudo systemctl stop firewalld
 #sudo systemctl disable firewalld
