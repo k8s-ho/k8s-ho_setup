@@ -24,15 +24,15 @@ Vagrant.configure("2") do |config|
 
 
   (1..NodeCount).each do |i|
-    config.vm.define "worker_#{i}-k8sHo" do |cfg|
+    config.vm.define "worker#{i}-k8sHo" do |cfg|
       cfg.vm.box = "imyoungho/k8sHo-ubuntu-20.04"
       cfg.vm.box_version = "1.0.0"
       cfg.vm.provider "virtualbox" do |vb|
-        vb.name = "worker_#{i}-k8sHo{ubuntu_20_04}"
+        vb.name = "worker#{i}-k8sHo{ubuntu_20_04}"
         vb.cpus = 1
         vb.memory = 1024
       end
-      cfg.vm.host_name = "worker_#{i}-k8sHo"
+      cfg.vm.host_name = "worker#{i}-k8sHo"
       cfg.vm.network "private_network", ip: "192.168.0.10#{i}"
       cfg.vm.network "forwarded_port", guest: 22, host: "1234#{i}", auto_correct: true, id: "ssh"
       cfg.vm.synced_folder "../data", "/setup", disabled: true
