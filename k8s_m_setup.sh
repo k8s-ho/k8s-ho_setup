@@ -7,8 +7,8 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-sudo apt install install bash-completion -y
-kubectl completion bash >/etc/bash_completion.d/kubectl
+sudo apt install bash-completion -y
+kubectl completion bash | sudo tee -a /etc/bash_completion.d/kubectl
 
 echo 'alias k=kubectl' >> ~/.bashrc
 echo 'complete -F __start_kubectl k' >> ~/.bashrc
