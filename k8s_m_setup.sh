@@ -12,5 +12,4 @@ kubectl completion bash | sudo tee -a /etc/bash_completion.d/kubectl
 
 echo 'alias k=kubectl' | sudo tee -a ~/.bashrc
 echo 'complete -o default -F __start_kubectl k'| sudo tee -a ~/.bashrc
-sudo source ~/.bashrc
-
+sudo source ~/.bashrc 
