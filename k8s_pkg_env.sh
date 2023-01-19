@@ -11,7 +11,8 @@ sudo sysctl --system
 
 
 sudo ufw disable
-
+sudo apt-get install docker-ce docker-ce-cli docker-compose-plugin -y
+sudo apt-get install containerd.io -y 
 
 sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
