@@ -13,8 +13,8 @@ swapoff -a && sed -i '/swap/s/^/#/' /etc/fstab
 #sudo systemctl disable firewalld
 sudo ufw disable
 
-echo "192.168.0.100 master-k8sHo" | sudo tee /etc/hosts
-for (( i=1; i<=2; i++  )); do echo "192.168.0.10$i worker$i-k8sHo" | sudo tee /etc/hosts; done
+echo "192.168.0.100 master-k8sHo" | sudo tee -a /etc/hosts
+for (( i=1; i<=2; i++  )); do echo "192.168.0.10$i worker$i-k8sHo" | sudo tee -a /etc/hosts; done
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
