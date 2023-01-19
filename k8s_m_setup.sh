@@ -11,4 +11,6 @@ sudo apt install bash-completion -y
 kubectl completion bash | sudo tee -a /etc/bash_completion.d/kubectl
 
 echo 'alias k=kubectl' | sudo tee -a ~/.bashrc
-echo 'complete -F __start_kubectl k'| sudo tee -a ~/.bashrc
+echo 'complete -o default -F __start_kubectl k'| sudo tee -a ~/.bashrc
+sudo source ~/.bashrc
+
