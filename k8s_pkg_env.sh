@@ -27,7 +27,7 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 #sudo mkdir -p /etc/containerd
 sudo containerd config default | sudo tee /etc/containerd/config.toml
 sudo cat /etc/containerd/config.toml | grep "SystemdCgroup = " | sudo sed 's/false/true/g'
-sudo systemctl restart containerd
+sudo systemctl start containerd
 
 sudo swapoff -a && sudo sed -i '/swap/s/^/#/' /etc/fstab
 #-----------------------------------------------------------------------------------------
