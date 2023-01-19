@@ -13,3 +13,5 @@ kubectl completion bash | sudo tee -a /etc/bash_completion.d/kubectl
 echo 'alias k=kubectl' | sudo tee -a ~/.bashrc
 echo 'complete -o default -F __start_kubectl k'| sudo tee -a ~/.bashrc
 source ~/.bashrc 
+
+kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/v0.20.2/Documentation/kube-flannel.yml
