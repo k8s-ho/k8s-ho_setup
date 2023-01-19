@@ -86,4 +86,4 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl daemon-reload
 sudo systemctl enable kubelet
-sudo systemctl start kubelet
+sudo systemctl restart kubelet
