@@ -28,7 +28,7 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 #sudo mkdir -p /etc/containerd
 sudo containerd config default | sudo tee /etc/containerd/config.toml
 sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml 
-sudo systemctl start containerd
+sudo systemctl restart containerd
 
 sudo swapoff -a && sudo sed -i '/swap/s/^/#/' /etc/fstab
 #-----------------------------------------------------------------------------------------
@@ -87,4 +87,4 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl daemon-reload
 sudo systemctl enable kubelet
-sudo systemctl start kubelet
+sudo systemctl restart kubelet
