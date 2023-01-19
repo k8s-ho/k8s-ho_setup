@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-kubeadm init --token 777777.7777777777777777 --token-ttl 0 \
+sudo kubeadm init --token 777777.7777777777777777 --token-ttl 0 \
 --apiserver-advertise-address=192.168.0.100 --pod-network-cidr=172.16.0.0/16
 
 mkdir -p $HOME/.kube
@@ -8,7 +8,7 @@ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 
 
-apt install install bash-completion -y
+sudo apt install install bash-completion -y
 kubectl completion bash >/etc/bash_completion.d/kubectl
 
 echo 'alias k=kubectl' >> ~/.bashrc
