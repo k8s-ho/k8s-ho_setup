@@ -2,7 +2,6 @@
 # vi: set ft=ruby :
 
 NodeCount = 3 
-
 k8s_ver = '1.25.0'           
 
 Vagrant.configure("2") do |config|
@@ -18,10 +17,9 @@ Vagrant.configure("2") do |config|
       cfg.vm.network "private_network", ip: "192.168.0.100"
       cfg.vm.network "forwarded_port", guest: 22, host: 12340, auto_correct: true, id: "ssh"
       cfg.vm.synced_folder "../data", "/setup", disabled: true 
-      #cfg.vm.provision "shell", path: "k8s_pkg_env.sh", args: [k8s_ver, NodeCount] 
-      #cfg.vm.provision "shell", path: "k8s_m_setup.sh"
+      cfg.vm.provision "shell", path: "k8s_pkg_env.sh", args: [k8s_ver, NodeCount] 
+      cfg.vm.provision "shell", path: "k8s_m_setup.sh"
     end
-
 
   (1..NodeCount).each do |i|
     config.vm.define "worker#{i}-k8sHo" do |cfg|
@@ -36,8 +34,8 @@ Vagrant.configure("2") do |config|
       cfg.vm.network "private_network", ip: "192.168.0.10#{i}"
       cfg.vm.network "forwarded_port", guest: 22, host: "1234#{i}", auto_correct: true, id: "ssh"
       cfg.vm.synced_folder "../data", "/setup", disabled: true
-      #cfg.vm.provision "shell", path: "k8s_pkg_env.sh", args: [k8s_ver, NodeCount] 
-      #cfg.vm.provision "shell", path: "k8s_w_setup.sh"
+      cfg.vm.provision "shell", path: "k8s_pkg_env.sh", args: [k8s_ver, NodeCount] 
+      cfg.vm.provision "shell", path: "k8s_w_setup.sh"
     end
   end
 end
