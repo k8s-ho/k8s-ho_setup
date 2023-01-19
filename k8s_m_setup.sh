@@ -1,6 +1,6 @@
 #!/bin/bash
 
-kubeadm init --token 7777777.77777777777777777 --token-ttl 0 \
+kubeadm init --token 777777.7777777777777777 --token-ttl 0 \
 --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.0.100 \
 --cri-socket=unix:///run/containerd/containerd.sock
 
