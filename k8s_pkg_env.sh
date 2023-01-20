@@ -5,6 +5,11 @@ export LC_ALL=en_US.UTF-8
 locale-gen en_US.UTF-8
 dpkg-reconfigure locales
 
+cat <<EOF | sudo tee -a /etc/resolv.conf
+nameserver 1.1.1.1 
+nameserver 8.8.8.8 
+EOF
+
 sudo apt-get update
 sudo apt-get install \
    ca-certificates \
@@ -76,11 +81,6 @@ net.ipv4.ip_forward                 = 1
 EOF
 sudo sysctl --system
 
-
-cat <<EOF | sudo tee -a /etc/resolv.conf
-nameserver 1.1.1.1 
-nameserver 8.8.8.8 
-EOF
 
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
