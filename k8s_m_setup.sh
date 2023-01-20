@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo kubeadm init --token 777777.7777777777777777 --apiserver-advertise-address=192.168.0.100 \
---pod-network-cidr=192.168.0.0/16
+--pod-network-cidr=172.16.0.0/16
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -15,5 +15,4 @@ echo complete -o default -F __start_kubectl k | sudo tee -a ~/.bashrc
 source ~/.bashrc 
 
 
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
+sudo sed -i -e 's?192.168.0.0/16?172.16.0.0/16?g' calico.yaml
