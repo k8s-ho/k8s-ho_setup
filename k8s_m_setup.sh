@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sudo kubeadm init --token 777777.7777777777777777 --apiserver-advertise-address=192.168.0.100 \
 --pod-network-cidr=192.168.0.0/16
