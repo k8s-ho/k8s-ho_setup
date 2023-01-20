@@ -10,8 +10,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 sudo apt-get -y install bash-completion
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
 
-echo "alias k=kubectl" | sudo tee -a ~/.bashrc
-echo "complete -o default -F __start_kubectl k" | sudo tee -a ~/.bashrc
+echo "alias k=kubectl" >> ~/.bashrc
+echo "complete -o default -F __start_kubectl k" >> ~/.bashrc
 source ~/.bashrc 
 
 sudo curl -O https://projectcalico.docs.tigera.io/manifests/calico.yaml 
