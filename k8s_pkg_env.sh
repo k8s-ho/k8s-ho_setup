@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-dpkg-reconfigure locales
 
 cat <<EOF | sudo tee -a /etc/resolv.conf
 nameserver 1.1.1.1 
