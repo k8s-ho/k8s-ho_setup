@@ -77,7 +77,7 @@ EOF
 sudo sysctl --system
 
 
-cat <<EOF | sudo tee /etc/resolv.conf
+cat <<EOF | sudo tee -a /etc/resolv.conf
 nameserver 1.1.1.1 
 nameserver 8.8.8.8 
 EOF
