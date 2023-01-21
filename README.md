@@ -1,5 +1,5 @@
 # k8s-ho_setup (Ubuntu server 20.04)
-### cluster information
+### Cluster information
 ```bash
 https://app.vagrantup.com/imyoungho/boxes/k8s-cluster
 ```
