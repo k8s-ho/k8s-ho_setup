@@ -1,5 +1,8 @@
 # k8s-ho_setup (Ubuntu server 20.04)
 ### cluster information
+```bash
+https://app.vagrantup.com/imyoungho/boxes/k8s-cluster
+```
 - kubeadm version 1.25.0 
 - kubectl version 1.25.0
 - kubelet version 1.25.0
