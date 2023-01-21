@@ -11,9 +11,9 @@ sudo apt-get -y install bash-completion
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
 
 
-echo "alias k=kubectl" | sudo tee -a /home/vagrant/.bashrc
-echo "complete -o default -F __start_kubectl k" | sudo tee -a /home/vagrant/.bashrc
-source /home/vagrant/.bashrc 
+echo "alias k=kubectl" | sudo tee -a $HOME/.bashrc
+echo "complete -o default -F __start_kubectl k" | sudo tee -a $HOME/.bashrc
+source $HOME/.bashrc 
 
 
 sudo curl -O https://projectcalico.docs.tigera.io/manifests/calico.yaml 
