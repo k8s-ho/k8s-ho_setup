@@ -6,7 +6,7 @@ k8s_ver = '1.25.0'
 
 Vagrant.configure("2") do |config|
     config.vm.define "master-k8sHo" do |cfg|
-      cfg.vm.box = "imyoungho/k8sHo-ubuntu-20.04"
+      cfg.vm.box = "imyoungho/k8s_ubuntu_20_04"
       cfg.vm.box_version = "1.0.0"
       cfg.vm.provider "virtualbox" do |vb|
         vb.name = "master-k8sHo{ubuntu_20_04}"
@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
 
   (1..NodeCount).each do |i|
     config.vm.define "worker#{i}-k8sHo" do |cfg|
-      cfg.vm.box = "imyoungho/k8sHo-ubuntu-20.04"
+      cfg.vm.box = "imyoungho/k8s_ubuntu_20_04"
       cfg.vm.box_version = "1.0.0"
       cfg.vm.provider "virtualbox" do |vb|
         vb.name = "worker#{i}-k8sHo{ubuntu_20_04}"
