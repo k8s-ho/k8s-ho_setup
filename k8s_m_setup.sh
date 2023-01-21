@@ -2,14 +2,12 @@
 
 sudo kubeadm init --token 777777.7777777777777777 --apiserver-advertise-address=192.168.0.100 --pod-network-cidr=172.16.0.0/16
 
-echo "this is home!!! tmp"
 echo $HOME
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-echo $(cat $HOME/.kube/config)
 
 sudo apt-get -y install bash-completion
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
