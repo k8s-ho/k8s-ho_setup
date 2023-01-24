@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
         vb.name = "master-k8sHo{ubuntu_20_04}"
         vb.cpus = 2
         vb.memory = 2048
-        vb.customize ["modifyvm", :id, "--groups", "/k8s-cluster"]
+        #vb.customize ["modifyvm", :id, "--groups", "/k8s-cluster"]
       end
       master.vm.host_name = "master-k8sHo"
       master.vm.network "private_network", ip: "192.168.0.100"
@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
           vb.name = "worker#{i}-k8sHo{ubuntu_20_04}"
           vb.cpus = 1
           vb.memory = 1024
-          vb.customize ["modifyvm", :id, "--groups", "/k8s-cluster"]
+          #vb.customize ["modifyvm", :id, "--groups", "/k8s-cluster"]
         end
         worker.vm.host_name = "worker#{i}-k8sHo"
         worker.vm.network "private_network", ip: "192.168.0.10#{i}"
