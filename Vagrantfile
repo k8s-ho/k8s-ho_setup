@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 NodeCount = 3 
 k8s_ver = '1.25.0'           
 
