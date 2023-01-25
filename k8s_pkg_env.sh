@@ -37,7 +37,11 @@ sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/con
 sudo systemctl restart containerd
 
 sudo swapoff -a && sudo sed -i '/swap/s/^/#/' /etc/fstab
+
 #-----------------------------------------------------------------------------------------
+# The commented out code is unnecessary, but I wrote it
+#
+#
 # #sudo mkdir /etc/docker
 # cat <<EOF | sudo tee /etc/docker/daemon.json
 # {
@@ -53,7 +57,6 @@ sudo swapoff -a && sudo sed -i '/swap/s/^/#/' /etc/fstab
 # sudo systemctl enable docker
 # sudo systemctl start docker
 
-# tmp test
 # sudo mkdir -p /etc/apt/keyrings
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 # echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
