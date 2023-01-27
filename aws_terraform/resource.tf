@@ -13,12 +13,12 @@ data "aws_security_group" "default" {
 resource "aws_security_group" "k8s-group" {
   name = "k8s-manifest_group"
   description = "Required port open policy in k8s-ho kubernetes cluster"
-  ingress {
-    from_port = 12340
-    to_port = 12343
-    protocol = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+#   ingress {
+#     from_port = 12340
+#     to_port = 12343
+#     protocol = "tcp"
+#     cidr_blocks = ["0.0.0.0/0"]
+#   }
   ingress {
     from_port = 22
     to_port = 22
