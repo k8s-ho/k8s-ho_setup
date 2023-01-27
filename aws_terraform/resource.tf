@@ -43,7 +43,9 @@ resource "aws_security_group" "k8s-group" {
 resource "aws_instance" "master" {
   ami = "ami-051d287d02a19035f" # ubuntu 20.04 64bit
   instance_type = "t2.medium"
-  size = 30
+  root_block_device {
+    volume_size = 30
+  }
   key_name = aws_key_pair.k8s_ho_admin.key_name
   vpc_security_group_ids = [
     aws_security_group.k8s-group.id,
