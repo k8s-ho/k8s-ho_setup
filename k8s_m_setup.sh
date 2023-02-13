@@ -15,7 +15,7 @@ echo "alias k=kubectl" | sudo tee -a $HOME/.bashrc
 echo "complete -o default -F __start_kubectl k" | sudo tee -a $HOME/.bashrc
 source $HOME/.bashrc 
 
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 #kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
 #sudo curl -O https://projectcalico.docs.tigera.io/manifests/calico.yaml 
 #sudo sed -i -e 's?192.168.0.0/16?172.16.0.0/16?g' calico.yaml
