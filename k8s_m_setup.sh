@@ -15,8 +15,8 @@ echo "alias k=kubectl" | sudo tee -a $HOME/.bashrc
 echo "complete -o default -F __start_kubectl k" | sudo tee -a $HOME/.bashrc
 source $HOME/.bashrc 
 
-wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
-sed -i -e 's?10.244.0.0/16?172.16.0.0/16?g' kube-flannel.yml 
+sudo wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+sudo sed -i -e 's?10.244.0.0/16?172.16.0.0/16?g' kube-flannel.yml 
 kubectl apply -f kube-flannel.yml
 
 #kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
