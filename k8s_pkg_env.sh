@@ -89,11 +89,13 @@ sudo apt-get update
 sudo apt-get install -y kubelet=$1-00 kubeadm=$1-00 kubectl=$1-00
 sudo apt-mark hold kubelet kubeadm kubectl
 
-sudo systemctl daemon-reload
-sudo systemctl enable kubelet
-sudo systemctl restart kubelet
-
 cat <<EOF > /etc/crictl.yaml
 runtime-endpoint: unix:///var/run/containerd/containerd.sock
 image-endpoint: unix:///var/run/containerd/containerd.sock 
 EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable kubelet
+sudo systemctl restart kubelet
+
+
