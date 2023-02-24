@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-cat <<EOF | sudo tee -a /etc/resolv.conf
+cat <<EOF | sudo tee /etc/resolv.conf -a
 nameserver 1.1.1.1 
 nameserver 8.8.8.8 
 EOF
