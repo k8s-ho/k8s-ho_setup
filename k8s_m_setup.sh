@@ -15,7 +15,7 @@ echo "alias k=kubectl" | sudo tee -a $HOME/.bashrc
 echo "complete -o default -F __start_kubectl k" | sudo tee -a $HOME/.bashrc
 source $HOME/.bashrc 
 
-kubectl apply https://raw.githubusercontent.com/sysnet4admin/IaC/master/manifests/172.16_net_calico_v1.yaml
+kubectl apply -f https://raw.githubusercontent.com/sysnet4admin/IaC/master/manifests/172.16_net_calico_v1.yaml
 
 # Need flannel routing modify
 #sudo wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
