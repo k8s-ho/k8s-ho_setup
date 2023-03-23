@@ -10,7 +10,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 sudo apt-get -y install bash-completion
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
 
-
+source <(kubectl completion bash) 
+echo "source <(kubectl completion bash)" >> ~/.bashrc
 echo "alias k=kubectl" | sudo tee -a $HOME/.bashrc
 echo "complete -o default -F __start_kubectl k" | sudo tee -a $HOME/.bashrc
 source $HOME/.bashrc 
