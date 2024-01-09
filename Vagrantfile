@@ -3,7 +3,7 @@
 
 
 NodeCount = 3
-k8s_ver = '1.25.0'
+k8s_ver = '1.28.0'
 
 Vagrant.configure("2") do |config|
 
