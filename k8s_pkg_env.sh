@@ -105,3 +105,5 @@ sudo systemctl enable kubelet
 sudo systemctl restart kubelet
 
 sudo apt install jq -y
+sudo apt install net-tools -y
+sudo apt install procps -y
