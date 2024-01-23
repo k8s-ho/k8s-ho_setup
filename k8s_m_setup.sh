@@ -6,17 +6,13 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# temp -> need modify
+
 sudo apt-get -y install bash-completion
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl
-
-source /etc/bash_completion
-source <(kubectl completion bash) 
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 echo "alias k=kubectl" | sudo tee -a $HOME/.bashrc
 echo "complete -o default -F __start_kubectl k" | sudo tee -a $HOME/.bashrc
-source $HOME/.bashrc 
-# temp -> need modify
+source /etc/bash_completion
 
 wget https://raw.githubusercontent.com/sysnet4admin/IaC/master/manifests/172.16_net_calico_v1.yaml
 sed -i 's/policy\/v1beta1/policy\/v1/g' 172.16_net_calico_v1.yaml
